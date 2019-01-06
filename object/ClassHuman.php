@@ -1,9 +1,9 @@
 <?php
 class ClassHuman {
-	const C="11";
-	public $sex="";
-	private $age="";
-	protected  $name="";
+	const C="11";//常量
+	public $sex="";//公有属性
+	private $age="";//私有属性
+	protected  $name="";//受保护的属性 只能被本身和子类调用
 	public function __construct(){
 		
 	}
@@ -14,10 +14,11 @@ class ClassHuman {
 		
 	}
 	
-	public function setName($name){
-		$this->name=$name;
+	public function setName($value){
+		$this->name=$value;
 	}
 	public function getName(){
+		
 		return $this->name;
 	}
 	/* 属性重载 */
@@ -47,13 +48,29 @@ class ClassHuman {
 	}
 	public static  function __callstatic($functionname,$args){
 		self::$functionname();
+		
 	}
 	
+}
+
+class Man extends ClassHuman {
+	public function getName(){
+		echo parent::getName();
+		echo "sub getName function";
+	}
 }
 $human= new ClassHuman();
 $human->age=100;
 var_dump($human->age	);
 $human->call();
 $human::callstatic();
+$man=new Man();
+$man->setName(" 小明");
+$man->getName();
+
+
+
+
+
 
 ?>

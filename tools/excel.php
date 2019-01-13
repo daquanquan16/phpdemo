@@ -2,7 +2,8 @@
 include_once '../vendor/autoload.php';
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
- 
+use PhpOffice\PhpSpreadsheet\Writer\Xls;
+use PhpOffice\PhpSpreadsheet\Writer\Csv;
 class Office
 {
  
@@ -38,16 +39,26 @@ class Office
             }
  
         }
+        unset($data);
         //刷新输出缓冲到浏览器
         ob_flush();
         flush();//必须同时使用 ob_flush() 和flush() 函数来刷新输出缓冲。
-        
+        //header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');//告诉浏览器输出07Excel文件
+        // header('Content-Type:application/vnd.ms-excel');//告诉浏览器将要输出Excel03版本文件
+
         header('Content-Type: application/vnd.ms-excel');
-        header('Content-Disposition: attachment;filename="' . $name . '.xlsx"');
-        header('Cache-Control: max-age=0');
-        $writer = new Xlsx($spreadsheet);
-        $writer->save('php://output');
- 
+        $filename=$name . '.xlsx';
+        $filename=$name .  $name . '.xls';
+        header('Content-Disposition: attachment;filename="'.$filename.'"');
+        header('Cache-Control: max-age=0');//禁止缓存
+        //$writer = new Xlsx($spreadsheet);
+        //$writer->save('php://output');
+        
+      //  $writer =new Csv($spreadsheet);
+      //  $writer->save('php://output');
+        
+       $writer=new Xls($spreadsheet);
+       $writer->save('php://output');
         //删除清空：
         $spreadsheet->disconnectWorksheets();
         unset($spreadsheet);

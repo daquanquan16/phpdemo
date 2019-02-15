@@ -21,6 +21,28 @@ $data: 客户端发送的数据
  * */
 $serv->on('receive', function ($serv, $fd, $from_id, $data) {
     $serv->send($fd, "Server inster table ".$data.'from_id_'.$from_id);
+    swoole_timer_after(1000,function(){
+        $msg= "5 订单失效 后执行111 \n";
+        echo $msg."server;";
+    });
+    $data=json_decode($data,true);
+   //print_r($data);
+    if(!empty($data)&&$data['order_type']=='orderinstall'){
+        //单次执行 多少秒后执行
+        $ss="test function";
+        swoole_timer_after(5,function(){
+          //  print_r("gloab+".$GLOBALS['ss']);
+           $file= file_get_contents('./tcp_clien.php');
+           print_r('file'.$file);
+            $msg= "5 订单失效 后执行 \n";
+            echo $msg."server;end";
+            //$serv->send($fd, "Server inster msg ".$msg.'from_id_'.$from_id);
+        });
+
+    }
+
+
+
 });
 
 //监听连接关闭事件

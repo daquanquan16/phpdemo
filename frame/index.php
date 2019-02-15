@@ -6,7 +6,7 @@
  * Time: 13:32
  */
 require_once './core/app.php';
-
+print_r($_GET);
 /*$request_uri=$_SERVER['REQUEST_URI'];
 $script_name=$_SERVER['SCRIPT_NAME'];
 $request=str_replace($script_name.'?s=/','',$request_uri);

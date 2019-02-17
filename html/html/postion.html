@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>postion</title>
+    <style type="text/css">
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        div#bottom{
+            color: palegoldenrod;
+            position: fixed;
+            bottom: 10px;
+            border: 1px solid orangered;
+            height: 200px;
+            width: 100%;
+            padding: auto;
+        }
+        h2{
+            margin: auto;
+            width: 100px;
+        }
+        h1,h2,h3,h4,h5{
+            border: 1px solid red;
+        }
+        h3{
+            color: blue;
+            width: 200px;
+            background: pink;
+            position: relative;
+            top: 5px;
+            z-index: -1;
+        }
+        div{
+            border: blue 1px solid;
+
+        }
+        .one{
+            width:100px;
+            height: 200px;
+            position: relative;
+        }
+        
+        .two{
+            border-color: red;
+            height: 300px;
+            width: 50px;
+            position:absolute ;
+            top: 20px;
+        }
+        ul li{
+            width:100px;
+            height: 50px;
+            background: pink;
+            list-style-type: none;
+            float: left;
+            border: solid 1px red;
+            margin-left: 10px;
+        }
+        .clear{
+            clear: both;
+        }
+
+    </style>
+</head>
+<body>
+<h1>fixed h1</h1>
+<div id="bottom">
+    <h2>fixed h2</h2>
+</div>
+
+<h3>h3</h3>
+<h4>h4</h4>
+<h5>h5</h5>
+
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
+<div class="clear"></div>
+<div class="one">
+    <div class="two">
+
+    </div>
+    <div class="clear"></div>
+</div>
+
+</body>
+</html>

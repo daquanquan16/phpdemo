@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--音频
+audio 定义声音标签
+source 定义媒体资源文件
+audio 属性controls 提供播放暂停控件
+audio 属性loop 循环播放
+-->
+<audio controls loop>
+    <source src="./1.mp3" type="audio/mp3">
+     您的浏览器不支持audio标签
+</audio>
+
+<!--视频
+video：
+source 定义媒体资源文件
+video 属性controls 提供播放暂停控件
+video 属性loop 循环播放
+video width 宽度
+video height 高度
+-->
+<video controls loop width="400" height="700">
+    <source src="./2.mp4" type="video/mp4">
+    您的浏览器不支持video标签
+</video>
+<!--
+embed 定义一个容器 比如.插件.（图片。视频，音频）
+
+-->
+<embed src="1.jpg" width="400" height="600"/>
+<embed src="1.mp3" width="400" height="600"/>
+<embed src="1.mp4" width="400" height="600"/>
+</body>
+</html>
